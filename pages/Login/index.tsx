@@ -20,6 +20,7 @@ const Signup = ({ navigation }:Props) => {
                 <Button title="Login"></Button>
                 <Text style={styles.loginText}
                     onPress={() => {
+                        
                         navigation.navigate("signup")
                     }}
                 >Don't have an account? Signup</Text>
