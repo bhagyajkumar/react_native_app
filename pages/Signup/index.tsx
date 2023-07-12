@@ -30,7 +30,13 @@ const Signup = ({ navigation }: Props) => {
           }
         ])
         setLoading(false)
+      },
+      (err:string)=>{
+        setLoading(false)
+        Alert.alert("Error", err)
       })
+
+      
   }
 
 
@@ -43,9 +49,7 @@ const Signup = ({ navigation }: Props) => {
         <TextInput style={styles.textbox} placeholder="Email" onChangeText={text => setEmail(text)}>{email}</TextInput>
         <TextInput style={styles.textbox} placeholder="username" onChangeText={text => setUsername(text)}>{username}</TextInput>
         <TextInput style={styles.textbox} placeholder="password" onChangeText={text => setPassword(text)} secureTextEntry={true}>{password}</TextInput>
-        {!loading &&
           <Button disabled={loading} title="signup" onPress={handleButtonClick} />
-        }
           <Spinner
             visible={loading}
             textContent={'Signing up...'}
@@ -74,7 +78,8 @@ const styles = StyleSheet.create(
       borderRadius: 10,
       marginBottom: 2,
       padding: 10,
-      backgroundColor: "#fff"
+      backgroundColor: "#fff",
+      color: "#000"
     },
 
     card: {
